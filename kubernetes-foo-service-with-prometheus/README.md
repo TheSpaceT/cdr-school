@@ -38,12 +38,20 @@ Load the image into Minikube
 ```
 minikube image load foo-server:1.0.1
 ```
-## 5. Deploy All Resources
+
+## 5. Create Namespaces
+```
+kubectl apply -f kubernetes/namespace-cdr-school.yaml
+kubectl apply -f kubernetes/namespace-monitoring.yaml
+```
+
+## 6. Deploy All Resources
 
 ```bash
 kubectl apply -f kubernetes/ --recursive
 ```
-## 8. Access Applications
+
+## 7. Access Applications
 ```bash
-kubectl port-forward -n monitoring svc/prometheus 9090:9090
+kubectl port-forward -n monitoring svc/prometheus-service 9090:9090
 ```
