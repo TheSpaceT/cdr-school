@@ -38,17 +38,7 @@ Load the image into Minikube
 ```
 minikube image load foo-server:1.0.1
 ```
-
-## 5. Create Namespaces
-
-```bash
-kubectl apply -f kubernetes/namespace-cdr-school.yaml
-kubectl apply -f kubernetes/namespace-monitoring.yaml
-```
-
-## 6. Deploy All Resources
-
-### Deploy in the correct order:
+## 5. Deploy All Resources
 
 ```bash
 kubectl apply -f kubernetes/ --recursive
@@ -57,7 +47,3 @@ kubectl apply -f kubernetes/ --recursive
 ```bash
 kubectl port-forward -n monitoring svc/prometheus 9090:9090
 ```
-
-Open in browser: http://localhost:9090
-Check Status → Targets to see all scrape targets
-Query metrics: http_requests_total{path="/foo"}
